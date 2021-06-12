@@ -11,14 +11,14 @@ app.use(express.urlencoded({ extended: false }));
 //static folder
 app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "hbs");
-const client=db.getConnection()
-client.connect(err => {
-  if (err) {
-    console.error('connection error vasanth', err.stack)
-  } else {
-    console.log('connected')
-  }
-});
+const client = db.getConnection();
+// client.connect(err => {
+//   if (err) {
+//     console.error('connection error vasanth', err.stack)
+//   } else {
+//     console.log('connected')
+//   }
+// });
 app.use("/", require("./routes/page"));
 app.use("/auth", require("./routes/auth"));
 app.listen(port, () => {
